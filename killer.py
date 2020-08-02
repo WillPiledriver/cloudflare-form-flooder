@@ -70,8 +70,7 @@ def cloud_proxy(url, proxy):
 if __name__ == "__main__":
     pool_size = 20
     proxy_index = 0
-    url = "https://hyperxoffensive.com/auth.php"
-    url = "https://cybercupauth.com/auth.php"
+    url = ""
     cloudflare = True
     proxies = get_all_proxies()
     gen = DocumentGenerator()
