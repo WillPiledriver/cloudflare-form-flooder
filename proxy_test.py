@@ -9,6 +9,10 @@ thread_pool = Pool(pool_size)
 def get_proxies():
     f = open("all_elite.txt", "r")
     return f.read().split("\n").remove("")
+	
+def get_all_proxies():
+    raw = requests.get("https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=elite").text
+    return raw.split("\r\n")
 
 
 def test_proxy(url, p):
@@ -22,10 +26,10 @@ def test_proxy(url, p):
 
 
 if __name__ == "__main__":
-    proxies = get_proxies()
+    proxies = get_all_proxies()
     proxy_pool = proxies
     good_proxies = list()
-    url = 'https://hyperxoffensive.com/auth.php'
+    url = ''
     i = 0
     while i < len(proxies):
         thread_pool = Pool(pool_size)
